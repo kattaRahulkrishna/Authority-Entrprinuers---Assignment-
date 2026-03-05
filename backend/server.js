@@ -11,26 +11,37 @@ const PORT = process.env.PORT || 5000;
 
 // POST /login - Validate user credentials
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  // Validate request body
-  if (!username || !password) {
-    return res.status(400).json({ message: 'Username and password are required' });
-  }
+    // Validate request body
+    if (!username || !password) {
+        return res.status(400).json({ message: 'Username and password are required' });
+    }
 
-  // Check credentials
-  if (username === 'admin' && password === 'admin') {
-    return res.status(200).json({ message: 'Login successful', username });
-  }
+    // Check credentials
+    if (username === 'admin' && password === 'admin') {
+        return res.status(200).json({ message: 'Login successful', username });
+    }
 
-  return res.status(401).json({ message: 'Invalid username or password' });
+    return res.status(401).json({ message: 'Invalid username or password' });
+});
+
+// Root route
+app.get('/', (req, res) => {
+    res.status(200).json({
+        status: 'Server is running',
+        endpoints: {
+            login: 'POST /login',
+            health: 'GET /health',
+        },
+    });
 });
 
 // Health check
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
+    res.status(200).json({ status: 'ok' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
