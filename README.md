@@ -125,5 +125,5 @@ App opens at `http://localhost:3000`
 
 ## Live Links
 
-- **Frontend (Netlify):** _[Add after deployment]_
-- **Backend (Render):** _[Add after deployment]_
+- **Frontend (Netlify):** https://rahulauthority.netlify.app
+- **Backend (Render):** https://authority-entrprinuers-assignment.onrender.com
