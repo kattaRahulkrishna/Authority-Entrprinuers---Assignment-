@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://authority-entrprinuers-assignment.onrender.com';
 
 const Login = () => {
     const navigate = useNavigate();
